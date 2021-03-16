@@ -1,0 +1,41 @@
+﻿@model IEnumerable<NotReddit.Models.Subsection>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SubsectionName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubsectionName)
+            </td>
+            <td>
+                @if (this.User.IsInRole("User"))
+                {
+                    <a asp-action="Edit" asp-route-id="@item.SubsectionId">Edit</a>
+                }
+                <a asp-action="Details" asp-route-id="@item.SubsectionId">Details</a>
+                @if (this.User.IsInRole("Admin"))
+                {
+                    <a asp-action="Delete" asp-route-id="@item.SubsectionId">Delete</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

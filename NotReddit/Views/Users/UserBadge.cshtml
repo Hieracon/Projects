@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "User Badge";
+    System.Data.DataTable table = ViewData["table"] as System.Data.DataTable;
+    int it1 = 0;
+    int it2 = 0;
+}
+
+<center>
+
+    <div class="">Badge</div>
+
+</center>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @(table.Columns[it2].ColumnName)
+                @{it2++;}
+            </th>
+            <th>
+                @(table.Columns[it2].ColumnName)
+                @{it2 = 0;}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in table.Rows)
+        {
+            <tr>
+                <td>
+                    @(table.Rows[it1][it2])
+                    @{it2++;}
+                </td>
+                <td>
+                    @(table.Rows[it1][it2])
+                    @{it1++; it2 = 0;}
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

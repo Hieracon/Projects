@@ -1,0 +1,51 @@
+﻿<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+@{
+    ViewData["Title"] = "Subsection";
+    System.Data.DataTable table = ViewData["table"] as System.Data.DataTable;
+    int it1 = 0;
+    int it2 = 3;
+}
+
+<center>
+
+    <h1>@table.Rows[0][1]</h1>
+
+</center>
+
+@if (this.User.IsInRole("Admin") || this.User.IsInRole("User"))
+{
+    <a class="btn btn-primary btn-lg active" asp-controller="Subsections" asp-action="CreatePost" asp-route-subsectionId="@table.Rows[0][0]" asp-route-subsectionName="@table.Rows[0][1]">Create New Post</a>
+}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @(table.Columns[it2].ColumnName)
+                    @{it2++;}
+                </th>
+                <th>
+                    @(table.Columns[it2].ColumnName)
+                    @{it2 = 3;}
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in table.Rows)
+            {
+            <tr>
+                <td>
+                    @(table.Rows[it1][it2])
+                    @{it2++;}
+                </td>
+                <td>
+                    @(table.Rows[it1][it2])
+                </td>
+                    <td>
+                        <a class="btn btn-primary btn-lg active" asp-controller="Posts" asp-action="PostComments" asp-route-author="@table.Rows[it1][it2]" asp-route-postId="@table.Rows[it1][it2 - 2]">Comments</a>
+                        @{it1++; it2 = 3;}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

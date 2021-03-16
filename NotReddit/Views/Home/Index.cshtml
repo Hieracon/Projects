@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    System.Data.DataTable table = ViewData["table"] as System.Data.DataTable;
+    int it = 0;
+}
+
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+@if (this.User.IsInRole("Admin") || this.User.IsInRole("User"))
+{
+    <a asp-area="" asp-controller="Subsections" asp-action="Create" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create New Subsection</a>
+}
+
+<div class="text-center">
+    @foreach (var item in table.Rows)
+    {
+        <a asp-area="" asp-controller="Subsections" asp-action="SubsectionContent" asp-route-name="@table.Rows[it][0]" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">@table.Rows[it][0]</a>
+        it++;
+    }
+</div>
