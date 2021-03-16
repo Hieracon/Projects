@@ -1,0 +1,66 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/custom.css" />
+
+@model IEnumerable<GASF.Models.CourseAttendance>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<center>
+
+    <div class="titlupag">Course Attendances</div>
+
+</center>
+
+<div class="btn">
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Student)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NrCourseAttendances)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NrLaboratoryAttendances)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrCourseAttendances)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrLaboratoryAttendances)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CourseAttendanceId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CourseAttendanceId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CourseAttendanceId">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

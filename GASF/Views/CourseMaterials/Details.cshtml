@@ -1,0 +1,51 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/custom.css" />
+
+@model GASF.Models.CourseMaterial
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<center>
+
+    <div class="titlupag_detalii">Details CourseMaterial</div>
+
+</center>
+<div class="camp1">
+    <div class="camp_detalii">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Course)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Course.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LinkCourseMaterial)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LinkCourseMaterial)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LinkSeminarMaterial)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LinkSeminarMaterial)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LinkLaboratoryMaterial)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LinkLaboratoryMaterial)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="btn">
+    <a asp-action="Edit" asp-route-id="@Model.CourseMaterialId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

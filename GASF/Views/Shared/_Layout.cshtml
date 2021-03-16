@@ -1,0 +1,73 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GASF</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/custom.css" />
+</head>
+
+<body>
+    <header>
+
+        <nav>
+            <div class="barnav" style="height: 100%;width: 200px">
+                <ul class="n-nav flex-grow-1" style="margin-top:120px">
+                    <li class="nav-item">
+                        <form class="form-inline" asp-area="" asp-controller="Home" asp-action="Index">
+                            <button type="submit" class="btn btn-lg btn-primary mr-1" style="color:#196619;font-size:14px;">Home</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <form class="form-inline" asp-area="" asp-controller="Home" asp-action="AboutUs">
+                            <button type="submit" class="btn btn-lg btn-primary mr-1" style="color:#196619;font-size:14px;">About Us</button>
+                        </form>
+                    <li class="nav-item">
+                        <form class="form-inline" asp-area="" asp-controller="Home" asp-action="ContactUs">
+                            <button type="submit" class="btn btn-lg btn-primary mr-1" style="color:#196619;font-size:14px;">Contact Us</button>
+                        </form>
+
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                        <li class="nav-item">
+                            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                <button type="submit" class="btn btn-lg btn-primary mr-1" style="color:#196619;font-size:14px;">Logout</button>
+                            </form>
+                        </li>
+                    }
+
+                    </ul>
+                </div>
+            </nav>
+
+            <nav class="barnav" style="width: 100%;display:table">
+                <span> <img src="~/images/oie_b3rGPz80ccnC.png" style="display: table-cell;">  </span>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <form style="margin-right:90%; display: table-cell;text-align:right" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+                        <button type="submit" class="btn btn-lg btn-primary mr-1" style="color:#196619;font-size:14px;">Hello @User.Identity.Name!</button>
+                    </form>
+                }
+
+            </nav>
+        </header>
+    <div class="container">
+        <div style="margin-top:160px;margin-left:130px">
+
+            @RenderBody()
+
+        </div>
+        </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

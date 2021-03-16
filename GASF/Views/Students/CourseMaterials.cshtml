@@ -1,0 +1,76 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/custom.css" />
+
+@{
+    ViewData["Title"] = "Course Materials";
+    System.Data.DataTable table = ViewData["table"] as System.Data.DataTable;
+    int it1 = 0;
+    int it2 = 1;
+}
+
+<center>
+
+    <div class="titlupag">Course Materials : @table.Rows[0][0]</div> 
+
+</center>
+
+<div class="btn">
+    <p>
+        <a asp-controller="Students" button onclick='foo();' asp-action="CourseMaterialsPDF">Download PDF</a>
+    </p>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @(table.Columns[it2].ColumnName)
+                @{it2++;}
+            </th>
+            <th>
+                @(table.Columns[it2].ColumnName)
+                @{it2++;}
+            </th>
+            <th>
+                @(table.Columns[it2].ColumnName)
+                @{it2++;}
+            </th>
+            <th>
+                @(table.Columns[it2].ColumnName)
+                @{it2 = 1;}
+            </th>
+        </tr>
+</thead>
+    <tbody>
+        @foreach (var item in table.Rows)
+        {
+        <tr>
+            <td>
+                @(table.Rows[it1][it2])
+                @{it2++;}
+            </td>
+            <td>
+                @(table.Rows[it1][it2])
+                @{it2++;}
+            </td>
+            <td>
+                @(table.Rows[it1][it2])
+                @{it2++;}
+            </td>
+            <td>
+                @(table.Rows[it1][it2])
+                @{it1++; it2 = 1;}
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<script>
+    function foo() {
+        alert('Download Successfully!');
+    }
+</script>

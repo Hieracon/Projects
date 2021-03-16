@@ -1,0 +1,72 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/custom.css" />
+
+@model GASF.Models.Teacher
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<center>
+
+    <div class="titlupag">Add Teacher</div>
+
+</center>
+
+<div style="text-align:center">
+    <div class="camp1">
+        <div class="camp">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="CNP" class="control-label"></label>
+                    <input asp-for="CNP" class="form-control" />
+                    <span asp-validation-for="CNP" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MailAddress" class="control-label"></label>
+                    <input type="email" asp-for="MailAddress" class="form-control" />
+                    <span asp-validation-for="MailAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input type="password" asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Birthday" class="control-label"></label>
+                    <input asp-for="Birthday" class="form-control" />
+                    <span asp-validation-for="Birthday" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="btn">
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

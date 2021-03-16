@@ -1,0 +1,88 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/custom.css" />
+
+@model GASF.Models.Course
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<center>
+
+    <div class="titlupag">Edit Course</div>
+
+</center>
+
+<div class="col-md-4">
+    <div class="camp1">
+        <div class="camp">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CourseId" />
+                <div class="form-group">
+                    <label asp-for="TeacherId" class="control-label"></label>
+                    <select asp-for="TeacherId" class="form-control" asp-items="ViewBag.TeacherId"></select>
+                    <span asp-validation-for="TeacherId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NrCredits" class="control-label"></label>
+                    <input asp-for="NrCredits" class="form-control" />
+                    <span asp-validation-for="NrCredits" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CourseYear" class="control-label"></label>
+                    <input asp-for="CourseYear" class="form-control" />
+                    <span asp-validation-for="CourseYear" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Section" class="control-label"></label>
+                    <input asp-for="Section" class="form-control" />
+                    <span asp-validation-for="Section" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CourseType" class="control-label"></label>
+                    <input asp-for="CourseType" class="form-control" />
+                    <span asp-validation-for="CourseType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Semester" class="control-label"></label>
+                    <input asp-for="Semester" class="form-control" />
+                    <span asp-validation-for="Semester" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="GradingMethod" class="control-label"></label>
+                    <input asp-for="GradingMethod" class="form-control" />
+                    <span asp-validation-for="GradingMethod" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="HasLaboratory" /> @Html.DisplayNameFor(model => model.HasLaboratory)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="HasSeminar" /> @Html.DisplayNameFor(model => model.HasSeminar)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="btn">
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

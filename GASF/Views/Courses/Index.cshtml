@@ -1,0 +1,102 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/custom.css" />
+
+@model IEnumerable<GASF.Models.Course>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<center>
+
+    <div class="titlupag">Courses</div>
+
+</center>
+
+<div class="btn">
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teacher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NrCredits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Section)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GradingMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasLaboratory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HasSeminar)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NrCredits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Section)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GradingMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasLaboratory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasSeminar)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CourseId">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.CourseId">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.CourseId">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

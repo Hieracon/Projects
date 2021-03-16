@@ -1,0 +1,53 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/custom.css" />
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+@{
+    ViewData["Title"] = "Certificates";
+}
+
+<center>
+
+    <div class="titlupag">Certificates</div>
+
+</center>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @("Certificates")
+            </th>
+            <th>
+                @("PDF")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @("R.A.T.")
+            </td>
+            <td>
+                <a asp-controller="Secretaries" asp-action="GenerateRATCertificatePDF" button onclick='foo();'>Generate PDF</a>
+            </td>
+            
+        </tr>
+        <tr>
+            <td>
+                @("Exam Permission Request")
+            </td>
+            <td>
+                <a asp-controller="Secretaries" asp-action="GenerateExamCertificatePDF" button onclick='foo();'>Generate PDF</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    function foo() {
+        alert('Download Successfully!');
+    }
+</script>

@@ -1,0 +1,106 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/custom.css" />
+
+@{
+    ViewData["Title"] = "Personal Data";
+    System.Data.DataTable table = ViewData["table"] as System.Data.DataTable;
+    int it1 = 0;
+    int it2 = 0;
+}
+
+<center>
+
+    <div class="titlupag">Personal Data : @table.Rows[0][1]</div> 
+
+</center>
+
+<div class="btn">
+    <p>
+        <a asp-controller="Students" button onclick='foo();' asp-action="PersonalDataPDF">Download PDF</a>
+    </p>
+</div>
+
+<div class="camp1">
+    <div class="camp_detalii">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @(table.Columns[it2].ColumnName)
+            </dt>
+            <dd class="col-sm-10">
+                @(table.Rows[it1][it2])
+                @{it2++;}
+            </dd>
+            <dt class="col-sm-2">
+                @(table.Columns[it2].ColumnName)
+            </dt>
+            <dd class="col-sm-10">
+                @(table.Rows[it1][it2])
+                @{it2++;}
+            </dd>
+            <dt class="col-sm-2">
+                @(table.Columns[it2].ColumnName)
+            </dt>
+            <dd class="col-sm-10">
+                @(table.Rows[it1][it2])
+                @{it2++;}
+            </dd>
+            <dt class="col-sm-2">
+                @(table.Columns[it2].ColumnName)
+            </dt>
+            <dd class="col-sm-10">
+                @(table.Rows[it1][it2])
+                @{it2++;}
+            </dd>
+            <dt class="col-sm-2">
+                @(table.Columns[it2].ColumnName)
+            </dt>
+            <dd class="col-sm-10">
+                @(table.Rows[it1][it2])
+                @{it2++;}
+            </dd>
+            <dt class="col-sm-2">
+                @(table.Columns[it2].ColumnName)
+            </dt>
+            <dd class="col-sm-10">
+                @(table.Rows[it1][it2])
+                @{it2++;}
+            </dd>
+            <dt class="col-sm-2">
+                @(table.Columns[it2].ColumnName)
+            </dt>
+            <dd class="col-sm-10">
+                @(table.Rows[it1][it2])
+                @{it2++;}
+            </dd>
+            <dt class="col-sm-2">
+                @(table.Columns[it2].ColumnName)
+            </dt>
+            <dd class="col-sm-10">
+                @(table.Rows[it1][it2])
+                @{it2++;}
+            </dd>
+            <dt class="col-sm-2">
+                @(table.Columns[it2].ColumnName)
+            </dt>
+            <dd class="col-sm-10">
+                @(table.Rows[it1][it2])
+                @{it2++;}
+            </dd>
+            <dt class="col-sm-2">
+                @(table.Columns[it2].ColumnName)
+            </dt>
+            <dd class="col-sm-10">
+                @(table.Rows[it1][it2])
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<script>
+    function foo() {
+        alert('Download Successfully!');
+    }
+</script>

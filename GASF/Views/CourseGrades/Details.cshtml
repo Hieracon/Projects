@@ -1,0 +1,63 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/custom.css" />
+
+@model GASF.Models.CourseGrade
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<center>
+
+    <div class="titlupag_detalii">Details CourseGrade</div>
+
+</center>
+<div class="camp1">
+    <div class="camp_detalii">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Student)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Student.FirstName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Course)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Course.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ExamGrade)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ExamGrade)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LabGrade)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LabGrade)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BonusPoints)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BonusPoints)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.IsGraduated)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.IsGraduated)
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="btn">
+    <a asp-action="Edit" asp-route-id="@Model.CourseGradeId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

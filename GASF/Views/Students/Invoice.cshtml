@@ -1,0 +1,72 @@
+﻿
+@{
+ViewData["Title"] = "Home Page";
+}
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="~/css/custom.css" />
+
+<div class="text-center">
+    @if (this.User.IsInRole("Secretary"))
+    {
+        <a asp-area="" asp-controller="Students" asp-action="Create" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create Student</a>
+        <a asp-area="" asp-controller="Students" asp-action="" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit Student</a>
+        <a asp-area="" asp-controller="Teachers" asp-action="Create" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create Teacher</a>
+        <a asp-area="" asp-controller="Teachers" asp-action="" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit Teacher</a>
+    }
+    else @if (this.User.IsInRole("Student"))
+    {
+        <a asp-area="" asp-controller="Students" asp-action="PersonalData" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Personal Data</a>
+    }
+
+    else @if (this.User.IsInRole("Teacher"))
+    {
+        <a asp-area="" asp-controller="CourseMaterials" asp-action="Create" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Course Materials</a>
+        <a asp-area="" asp-controller="CourseMaterials" asp-action="" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Edit Course Materials</a>
+    }
+
+    <br>
+    <br>
+    <br>
+
+    @if (this.User.IsInRole("Secretary"))
+    {
+        <a asp-area="" asp-controller="Courses" asp-action="" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Courses Management</a>
+    }
+    else @if (this.User.IsInRole("Student"))
+    {
+        <a asp-area="" asp-controller="Students" asp-action="SchoolSituation" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">School Sttuation</a>
+        <a asp-area="" asp-controller="Students" asp-action="Invoice" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" button onclick='foo();'>Invoice</a>
+        <button onclick="visitPage();" class="btn btn-primary btn-lg active">Diploma Project</button>
+    }
+
+    else @if (this.User.IsInRole("Teacher"))
+    {
+        <a asp-area="" asp-controller="CourseAttendances" asp-action="" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Attendance</a>
+        <a asp-area="" asp-controller="CourseGrades" asp-action="" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Grades</a>
+    }
+
+    <br>
+    <br>
+    <br>
+
+    @if (this.User.IsInRole("Secretary"))
+    {
+        <a asp-area="" asp-controller="" asp-action="" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Certificate List</a>
+    }
+    else @if (this.User.IsInRole("Student"))
+    {
+        <a asp-area="" asp-controller="Students" asp-action="CourseMaterials" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Courses</a>
+    }
+</div>
+
+<script>
+    function foo() {
+        alert('Download Successfully!');
+    }
+</script>
+
+<script>
+    function visitPage() {
+        window.location = 'http://www.dcti.ucv.ro/userfiles/downloads/2019-2020/DCTI-proiecte-licenta-2019-2020.pdf';
+    }
+</script>

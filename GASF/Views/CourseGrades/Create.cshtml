@@ -1,0 +1,65 @@
+﻿
+<link href="https://fonts.googleapis.com/css?family=Tangerine:700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/css/custom.css" />
+
+@model GASF.Models.CourseGrade
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<center>
+
+    <div class="titlupag">Add Course Grade</div>
+
+</center>
+
+<div style="text-align:center">
+    <div class="camp1">
+        <div class="camp">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="StudentId" class="control-label"></label>
+                    <select asp-for="StudentId" class="form-control" asp-items="ViewBag.StudentId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CourseId" class="control-label"></label>
+                    <select asp-for="CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ExamGrade" class="control-label"></label>
+                    <input asp-for="ExamGrade" class="form-control" />
+                    <span asp-validation-for="ExamGrade" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LabGrade" class="control-label"></label>
+                    <input asp-for="LabGrade" class="form-control" />
+                    <span asp-validation-for="LabGrade" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BonusPoints" class="control-label"></label>
+                    <input asp-for="BonusPoints" class="form-control" />
+                    <span asp-validation-for="BonusPoints" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsGraduated" /> @Html.DisplayNameFor(model => model.IsGraduated)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+        <div class="btn">
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }
